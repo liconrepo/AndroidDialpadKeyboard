@@ -1,4 +1,4 @@
-package com.licon.androidcustomkeyboard;
+package com.licon.androiddialpadkeyboard;
 
 import org.junit.Test;
 

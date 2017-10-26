@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Android Custom Keyboard</string>
+    <string name="app_name">Android Dialpad Keyboard</string>
+    <string name="ime_title_keyboard">Dialpad Keyboard</string>
+    <string name="ime_subtitle_keyboard">Dialpad IME</string>
+    <string name="ime_subtype_locale">en_US</string>
+    <string name="ime_subtype_mode">keyboard</string>
 </resources>

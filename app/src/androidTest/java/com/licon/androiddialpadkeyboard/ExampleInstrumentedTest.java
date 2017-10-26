@@ -1,4 +1,4 @@
-package com.licon.androidcustomkeyboard;
+package com.licon.androiddialpadkeyboard;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
