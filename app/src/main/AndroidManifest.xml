@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.licon.androidcustomkeyboard"
+<manifest package="com.licon.androiddialpadkeyboard"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.licon.androidcustomkeyboard.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+    <application>
+        <service
+            android:name="com.licon.androiddialpadkeyboard.DialpadKeyboard"
+            android:label="@string/ime_title_keyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method"/>
+            <intent-filter>
+                <action android:name="android.view.InputMethod"/>
             </intent-filter>
-        </activity>
+        </service>
     </application>
 
 </manifest>

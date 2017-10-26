@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input-method xmlns:android="http://schemas.android.com/apk/res/android">
+    <subtype
+        android:label="@string/ime_subtitle_keyboard"
+        android:imeSubtypeLocale="@string/ime_subtype_locale"
+        android:imeSubtypeMode="@string/ime_subtype_mode" />
+</input-method>
