@@ -1,7 +1,15 @@
 <resources>
+    <!-- General -->
     <string name="app_name">Android Dialpad Keyboard</string>
     <string name="ime_title_keyboard">Dialpad Keyboard</string>
+    <string name="ime_title_settings_keyboard">Dialpad Keyboard Settings</string>
     <string name="ime_subtitle_keyboard">Dialpad IME</string>
     <string name="ime_subtype_locale">en_US</string>
     <string name="ime_subtype_mode">keyboard</string>
+    <string name="language_selection_title">Input languages</string>
+    <string name="select_language">Select input languages</string>
+
+    <!-- Key labels -->
+    <string name="key_label_space">SPACE</string>
+    <string name="key_label_clear">CLEAR</string>
 </resources>

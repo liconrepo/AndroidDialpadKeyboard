@@ -71,13 +71,13 @@
         <Key
             android:codes="32"
             android:isRepeatable="true"
-            android:keyLabel="SPACE"
+            android:keyLabel="@string/key_label_space"
             android:keyWidth="60%p"/>
         <Key
             android:codes="-5"
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
-            android:keyLabel="CLEAR"
+            android:keyLabel="@string/key_label_clear"
             android:keyWidth="20%p"/>
     </Row>
 
