@@ -8,22 +8,25 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
 /**
  * Created by FRAMGIA\khairul.alam.licon on 25/10/17.
  */
-public class DialpadKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
-    private static final int KEYCODE_FACEBOOK = -20;
-    private static final int KEYCODE_CALL = -21;
-    private static final int KEYCODE_PLUS = -22;
+public class DialpadKeyboard extends InputMethodService
+    implements KeyboardView.OnKeyboardActionListener {
+    private static final int KEYCODE_CALL = -999;
+    private static final int KEYCODE_PLUS = -998;
+    private static final String KEY_VALUE_PLUS = "+";
     private KeyboardView mKeyboardView;
     private Keyboard mKeyboard;
 
     @Override
     public View onCreateInputView() {
-        mKeyboardView = (KeyboardView) getLayoutInflater().inflate(R.layout.layout_keyboard_view, null);
+        mKeyboardView =
+            (KeyboardView) getLayoutInflater().inflate(R.layout.layout_keyboard_view, null);
         mKeyboard = new Keyboard(this, R.xml.qwerty);
         mKeyboardView.setKeyboard(mKeyboard);
         mKeyboardView.setOnKeyboardActionListener(this);
@@ -45,22 +48,19 @@ public class DialpadKeyboard extends InputMethodService implements KeyboardView.
             case Keyboard.KEYCODE_DELETE:
                 inputConnection.deleteSurroundingText(1, 0);
                 break;
-            case KEYCODE_FACEBOOK:
-                Intent intentFacebook = new Intent("android.intent.category.LAUNCHER");
-                intentFacebook.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
-                intentFacebook.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intentFacebook);
-                break;
             case KEYCODE_CALL:
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) return;
+                if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) !=
+                    PackageManager.PERMISSION_GRANTED)
+                    || (TextUtils.isEmpty(inputConnection.getTextBeforeCursor(20, 0).toString())))
+                    return;
                 Intent intentCall = new Intent(Intent.ACTION_CALL);
                 intentCall.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                String number = "tel:"+inputConnection.getTextBeforeCursor(20, 0).toString();
+                String number = "tel:" + inputConnection.getTextBeforeCursor(20, 0).toString();
                 intentCall.setData(Uri.parse(number));
                 startActivity(intentCall);
                 break;
             case KEYCODE_PLUS:
-                inputConnection.commitText("+", 1);
+                inputConnection.commitText(KEY_VALUE_PLUS, 1);
                 break;
             default:
                 char code = (char) primaryCode;
