@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:title="@string/ime_title_settings_keyboard">
+    <PreferenceCategory
+        android:key="setting_general_category"
+        android:title="General">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="applicationVibration"
+            android:summary="Vibration on key press"
+            android:title="Vibration"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="applicationSound"
+            android:summary="Sound on key press"
+            android:title="Key sound"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="setting_call_category"
+        android:title="Phone call">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="applicationSound"
+            android:summary="Check valid phone number before call"
+            android:title="Valid phone number"/>
+    </PreferenceCategory>
+</PreferenceScreen>
